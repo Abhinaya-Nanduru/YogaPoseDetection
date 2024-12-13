@@ -1,22 +1,27 @@
+# Yoga Pose Detection and Correction
 
-# Yoga Pose Detection
 
-## Overview
-This project implements a yoga pose detection system using deep learning techniques. The model classifies yoga poses as correct or incorrect based on images captured from a webcam.
+This project aims to develop a real-time yoga pose detection system that provides feedback on the accuracy of the user's pose. The system uses a deep learning model trained on images of yoga poses.
 
 ## Data Preprocessing
-- The dataset is organized into `train`, `valid`, and `test` folders.
-- Images are transformed using resizing, augmentation, and normalization.
+- The images are resized to 224x224 pixels to match the input requirements of the pre-trained ResNet-18 model.
+- Data augmentation techniques such as random horizontal flipping, rotation, and color jittering were applied to improve generalization.
 
 ## Model Architecture
-- Pre-trained ResNet-18 model is used and modified for binary classification.
+We used a pre-trained ResNet-18 model, which was fine-tuned for the binary classification task (correct or incorrect pose). The model’s fully connected layer was modified to output a single value, which is then passed through a sigmoid activation function to produce the final prediction.
 
 ## Training
-- The model is trained for 10 epochs with a batch size of 8 and a learning rate of 0.0001.
+The model was trained for 10 epochs with a batch size of 8. The loss function used is BCEWithLogitsLoss, which is suitable for binary classification tasks. The Adam optimizer was used to update the model’s weights.
 
 ## Results
-- Validation and test accuracies are reported.
+- The model achieved a validation accuracy of 100%.
+- The final test accuracy was 100%.
 
-## Real-time Inference
-- The model can provide real-time feedback on yoga poses using webcam input.
+## Challenges
+- Collecting enough labeled data for training posed a challenge. The dataset was limited in variety, which may have impacted the model’s generalization.
+
+## Future Work
+- Improve the dataset by including more diverse yoga poses and capturing different angles.
+- Explore more complex architectures for better accuracy.
+
 
